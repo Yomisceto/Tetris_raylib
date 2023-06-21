@@ -205,7 +205,7 @@ void Game::UpdateCurrentTetromino()
 	{
 		currentTetromino = nextTetromino;
 		currentTetromino->SetBoard(&board);
-		nextTetromino = new Straight(&previewBoard);// = factory.createTetromine();
+		nextTetromino = factory.createTetromine();
 
 		// Check if new tetromino can be spawned
 		if (!TetrominoCanSpawn())
