@@ -205,7 +205,7 @@ void Game::UpdateCurrentTetromino()
 	{
 		currentTetromino = nextTetromino;
 		currentTetromino->SetBoard(&board);
-		nextTetromino = factory.createTetromine();
+		nextTetromino = new Straight(&previewBoard);// = factory.createTetromine();
 
 		// Check if new tetromino can be spawned
 		if (!TetrominoCanSpawn())
@@ -219,7 +219,6 @@ void Game::UpdateCurrentTetromino()
 void Game::SetTetrominoOnBoard()
 {
 	std::vector<Vec2<int>> cellsPos(currentTetromino->GetActiveCellPositions());
-	int toScore = 0;
 	int clearedRows = 0;
 
 	for (const auto& cellPos : cellsPos)
@@ -236,9 +235,9 @@ void Game::SetTetrominoOnBoard()
 
 	if (clearedRows > 0)
 	{
-		toScore += settings::scorePerRow;
+		int toScore = settings::scorePerRow;
 
-		for (int i = 2; i < clearedRows; ++i)
+		for (int i = 2; i <= clearedRows; ++i)
 		{
 			toScore += settings::scorePerRow;
 			toScore *= i;
