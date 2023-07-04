@@ -1,8 +1,7 @@
 # Mini-Tetris raylib
 
 ### Introduction
-Mini Tetris is a simple implementation of the classic game, built using the C++ programming language and the raylib library. 
-It provides a fun and interactive way to play Tetris.
+The raylib collection and the C + + programming language were used to create the mini tetris - simple implementation of the classic game.
 
 ### Technologies used:
 The mini tetris application is built using the following technologies and tools:
